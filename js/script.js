@@ -4,10 +4,10 @@
 var chessBoard = [];
 var me = true;
 var over = false;
-//Ó®·¨Êý×é
+//èµ¢æ³•æ•°ç»„
 var wins = [];
 
-//Ó®·¨µÄÍ³¼ÆÊý×é
+//èµ¢æ³•çš„ç»Ÿè®¡æ•°ç»„
 var myWin = [];
 var computerWin = [];
 
@@ -26,7 +26,7 @@ for(var i=0; i<15; i++){
 }
 
 var count = 0;
-//ËùÓÐºáÏß
+//æ‰€æœ‰æ¨ªçº¿
 for(var i=0; i<15; i++){
     for(var j=0; j<11; j++){
         // wins[0][0][0] = true;
@@ -46,7 +46,7 @@ for(var i=0; i<15; i++){
         count++;
     }
 }
-//ËùÓÐÊúÏß
+//æ‰€æœ‰ç«–çº¿
 for(var i=0; i<15; i++){
     for(var j=0; j<11; j++){
         for(var k=0; k<5; k++){
@@ -55,7 +55,7 @@ for(var i=0; i<15; i++){
         count++;
     }
 }
-//ËùÓÐÐ±Ïß
+//æ‰€æœ‰æ–œçº¿
 for(var i=0; i<11; i++){
     for(var j=0; j<11; j++){
         for(var k=0; k<5; k++){
@@ -64,7 +64,7 @@ for(var i=0; i<11; i++){
         count++;
     }
 }
-//ËùÓÐ·´Ð±Ïß
+//æ‰€æœ‰åæ–œçº¿
 for(var i=0; i<11; i++){
     for(var j=14; j>3; j--){
         for(var k=0; k<5; k++){
@@ -89,18 +89,18 @@ context.strokeStyle = "#BFBFBF";
 var logo = new Image();
 logo.src = "images/logo.png";
 logo.onload = function(){
-    context.drawImage(logo, 0, 0, 450, 450);  // »­±³¾°Í¼Æ¬
-    drawChessBoard();  //µ÷ÓÃÆå°åº¯Êý
+    context.drawImage(logo, 0, 0, 450, 450);  // ç”»èƒŒæ™¯å›¾ç‰‡
+    drawChessBoard();  //è°ƒç”¨æ£‹æ¿å‡½æ•°
 }
 
 
 
 var drawChessBoard = function(){
     for(var i=0; i<15; i++){
-        context.moveTo(15+i*30,15);    //»­ÊúÏß
+        context.moveTo(15+i*30,15);    //ç”»ç«–çº¿
         context.lineTo(15+i*30,435);
         context.stroke();
-        context.moveTo(15,15+i*30);     //»­ºáÏß
+        context.moveTo(15,15+i*30);     //ç”»æ¨ªçº¿
         context.lineTo(435,15+i*30);
         context.stroke();
 
@@ -108,7 +108,7 @@ var drawChessBoard = function(){
 }
 
 var oneStep = function(i,j,me){
-    context.beginPath();  //»­Æå×Ó
+    context.beginPath();  //ç”»æ£‹å­
     context.arc(15 + i*30, 15 + j*30, 13, 0, 2*Math.PI);
     context.closePath();
     var gradient = context.createRadialGradient(15+ i*30+2, 15 + j*30-2, 13, 15+i*30+2, 15+j*30-2, 0);
@@ -142,7 +142,7 @@ chess.onclick = function (e) {
                 myWin[k]++;
                 computerWin[k] = 6;
                 if (myWin[k] == 5) {
-                    window.alert("¹§Ï²Äã~ÄãÓ®ÁË£¡");
+                    window.alert("æ­å–œä½ ~ä½ èµ¢äº†ï¼");
                     over = true;
                 }
             }
@@ -223,7 +223,7 @@ var computerAI = function(){
             computerWin[k]++;
             myWin[k] = 6;
             if (computerWin[k] == 5) {
-                window.alert("¹þ¹þ¹þ~³ÐÈÃÁË£¡");
+                window.alert("å“ˆå“ˆå“ˆ~æ‰¿è®©äº†ï¼");
                 over = true;
             }
         }
